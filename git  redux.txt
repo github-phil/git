@@ -1,0 +1,124 @@
+ssh-keygen -t rsa -C 邮箱   999999
+ 197309li
+
+菜鸟  廖雪峰的官方网站
+
+版本控制
+
+1.添加新文件
+       git add
+2.提交版本
+     git  commit  -m  " Adding files"
+     git commit  -a  -m  "Changed  some  files"
+3.发布版本
+     git  clone   ssh://example.com/~/www/project.git
+4.取回更新
+    git pull   http://git.example.com/project.git
+5.删除
+   git  rm   file
+6.分支与合并
+   git branch test
+                        branch命令不会将我们带入分支，只是创建一个新分支。所以我们使用checkout命令来更改分支。
+   git checkout test
+                        第一个分支，或主分支，被称为"master"。
+   git checkout master
+                         对其他分支的更改不会反映在主分支上。如果想将更改提交到主分支，则需切换回master分支，然后使用合并。
+    git checkout master
+    git merge test
+               如果您想删除分支，我们使用-d标识。
+     git branch -d test
+
+git   是当前最流行的版本管理系统
+git checkout  从当前分支上拉一个分支出来
+git clone    克隆一个版本号
+加密协议   SSH   https
+git   branch   用于查看分支
+多人合作时  一半是在分支上开发 在主干上发布
+git add  将文件添加到index 仓库
+git push   将文件添加大remote远程
+git clone   仓库地址   将远程残酷内容克隆岛本地磁盘
+git status  用于查看文件修改的状态  （查看文件区哪些文件被修改）
+git checkout  -b 分支名   创建分支并切换到改分支
+git  branch  -d   删除本地分支
+git log  查看提交日志
+git  commit  向本地仓库提交代码
+git checkout master 会主分支
+2.分支
+    查看分支 git branch
+   创建分支：git branch <name>
+  切换分支：git checkout <name>
+创建+切换分支:git checkout -b <name>
+ 合并某分支到当前: git merge <name>
+  删除分支：git branck -d <name>
+3.查看版本
+  git log
+  git log --pretty=oneline   、、查看版本信息在一行显示 ，有阅读
+  git reflog     //记录命令历史  id q前7位  HEAD
+回退  reset  --hard HEAD^
+         reset --hard id(至少5六位)
+
+一、建本地仓库   本地仓库连接到 gitHub 远程仓库
+       ①git init     生成 .git   创建 txt
+      ②git add .     添加文件 txt
+      ③git commit -m   "描述"
+      2>连接远程仓库
+         Code 下   加好下 New repository
+        建好后，取好项目名称poster，点击create repository按钮，完成仓库的建立
+        copy 路径
+    3》 连接到 poster   操作小黑板
+         git remote add origin  路径   
+
+  解决冲突    git pull --rebase origin master
+清除本仓   git  remote  rm origin
+  
+ 4》推送
+        git push -u origin master
+    
+二、分支
+    1. 写入上传 add 、commit -m
+    2.创建分支 git beanch <name>         git checkout <name>
+    3.继续写入内容  上传到本地
+    4.切换回主分支 git checkout master   
+        合并     git merge <name>
+
+
+redux  // 全局
+Provider  from 'react-redux'
+<Provider store={store}>
+
+store    store.subscribe(function(){   store.getState() // 监听得到})
+   createStore from 'redux'
+   reducers  from  './reducer' -----------容器
+   let store = createStore(renducers)    
+
+reducer 
+     combineReducers from 'redux';-------合并用的
+    function  todolist (state = [], action) {
+       switch(action..type)
+       case 'name':
+            return [...state, action.data]
+    }
+   function filter(state ='all', action) {
+          if(action.type === 'filter-name') .....
+   }
+    export default combineReducers({  todolist, filter  })  -------是个对象
+
+在页面中调用
+    connect  from 'react-redux'
+     function mapStateToProps(state){return {...  }}
+     function mapDispatchToProp(dispatch){
+               return {
+                        add:function(data){
+                               dispatch({
+                                      type: 'add',
+                                      data: {data:data,   status:'pending'}
+                               })
+                        updata:.......
+                        }
+                }
+     }
+    export default connect(mapStateToProps, mapDispatchToProp)(name)
+
+
+
+
